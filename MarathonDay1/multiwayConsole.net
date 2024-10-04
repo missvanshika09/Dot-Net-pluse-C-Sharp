@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace demo
+{
+    internal class MyMath
+    {
+        public int sum(int x, int y)
+        {
+            return x + y;
+        }
+        public int sqr(int x)
+        { 
+            return x * x; 
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("hello c#");
+            int a = 5, b = 7;
+            MyMath obj = new MyMath();
+            int r1 = obj.sum(a, b);
+            int r2 = obj.sqr(a);
+            Console.WriteLine("sum ={0} square ={1}", r1, r2);
+            Console.WriteLine($"sum={r1} sqr={r2}");
+            Console.WriteLine("sum=" + r1 + "square=" + r2);
+
+        }
+
+        }
+    }
+
