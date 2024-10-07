@@ -1,0 +1,27 @@
+// Use out. 
+using System;
+class Decompose
+{
+    /* Decompose a floating-point value into its 
+       integer and fractional parts. */
+    public void ap(double n, out double a, out double p)
+    {
+        const double PI = 3.14;
+        a = PI * n * n;
+        p = PI *2*n;
+    }
+}
+class UseOut
+{
+    public static void Main()
+    {
+        Decompose ob = new Decompose();
+     
+        double r=2.5;
+        ob.ap(r,out double a, out double p);
+        Console.WriteLine("Integer portion is " + a);
+        Console.WriteLine("Fractional part is " + p);
+    }
+}
+
+
