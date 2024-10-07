@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BasicDataTypes
+{
+    internal class Myclass
+    {// public instance method- u can call this method through object of this class
+        
+        public int sum(int x, int y)
+        {
+            return x + y;
+        }
+        class Programm  //entry point class
+        {
+            static void Main(string[] args)
+            {
+                int x = 5;  //local variable 
+                Console.WriteLine(x);// just to print the output
+                Myclass myobj = new Myclass();// creating object of a myclass
+                int result = myobj.sum(3, 4);//operator overloading
+                Console.WriteLine("result="+result);
+                Console.WriteLine("result={0}", result);
+            }
+        }
+    }
+}
