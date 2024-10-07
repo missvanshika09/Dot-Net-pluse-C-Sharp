@@ -1,0 +1,23 @@
+using System;
+namespace FunWithStrings
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a, b, s1;
+            //hardcode string goes in a string pool
+            a = "hello";
+            b = a.ToLower();//convert string to lower case
+            Console.WriteLine(a == b);//true
+            Console.WriteLine(Object.Equals(a, b));//true
+            Console.WriteLine(Object.ReferenceEquals(a, b));//false
+            Console.WriteLine(a.ToString());//hello
+            Console.WriteLine(a.GetHashCode());//-695839
+            Console.WriteLine(b.GetHashCode());//-695839
+            s1 = null;
+            Console.WriteLine(Object.Equals(a, s1));//false
+            Console.WriteLine(s1.Equals(a));//run time error
+        }
+    }
+}
