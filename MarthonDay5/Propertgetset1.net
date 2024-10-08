@@ -1,0 +1,102 @@
+using System.Net.Http.Headers;
+
+
+namespace Caemp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                Employee e1 = new Employee("johnss", 60000);
+                Console.WriteLine(e1);
+            }
+            catch(Exception e) 
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                Employee e2 = new Employee("ADiyaa", 65000);
+                Console.WriteLine(e2);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+                Employee e3 = new Employee("VAn", 70000);
+                Console.WriteLine(e3);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            Employee e4 = new Employee("Rand",45000);
+            Console.WriteLine(e4);   
+
+        }
+    }
+}
+
+// make a class named Employee
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Caemp
+{
+    internal class Employee
+    {
+        private static int idCounter = 1;
+        private int id; 
+        private string name;  
+        private double salary; 
+
+        
+        public Employee(string name, double salary)
+        {
+            id = ++idCounter;  
+            Name = name; 
+            Salary = salary;  
+        }
+
+   
+        public int Id
+        {
+            get { return id; }
+        }
+
+        
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value.Length < 5 || value.Length > 15)
+                    throw new Exception("need length between 5 and 15");
+                else
+                {
+                    name = value;
+                }
+            }
+        }
+
+        public double Salary
+        {
+            get { return salary; }
+            set { salary = value; }
+        }
+
+        public override string ToString()
+        {
+
+            return $"id:{Id} name:{Name} salary: {salary}";
+        }
+    }
+
+}
