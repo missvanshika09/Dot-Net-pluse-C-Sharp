@@ -1,0 +1,45 @@
+
+using System;
+
+namespace Day6Example1
+{
+
+    class A
+    {
+        public int i = 0;
+        // show() in A //3
+        public void show()
+        {
+            Console.WriteLine("i in base class: " + i);//8
+        }
+    }
+    // Create a derived class. 
+    class B : A
+    {
+        new int i; // this i hides the i in A 
+        public B(int a, int b)//2
+        {
+            base.i = a; // this uncovers the i in A //4
+            i = b; // i in B //5
+        }
+        // This hides show() in A. Notice the use of new. 
+        new public void show()
+        {
+            base.show(); // this calls show() in A //7
+                         // this displays the i in B 
+            Console.WriteLine("i in derived class: " + i);//9
+        }
+        class UncoverName
+        {
+            public static void Main()
+            {
+                B ob = new B(1, 2);//1
+
+                ob.show();//6
+                A aref = new B(5, 3);// this will call parent class show method
+                aref.show();
+            }
+        }
+    }
+}
+
