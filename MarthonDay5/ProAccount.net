@@ -1,0 +1,102 @@
+using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Xml.Linq;
+
+namespace DAY5EXAMP3
+{
+    /*Create class Account having member variable id,name, balance.
+Write getter/setter for id, name and balance
+create method deposit which will increase balance
+Create two child class currentaccount and saving account
+It has member type,
+In both the class create withdraw method who’ s job is to reduce balance.
+In currentaccount negative balance allowed
+In savingaccount –ve balance not allowed.
+When you load application it should print name of bank.
+New Savingaccount(1,”Raj”,50000,” “saving”)
+*/
+
+
+    internal class Account
+    {
+        private int id; private string name; private double balance;
+        public Account(int id, String name, double balance)
+        {
+            Id = id;
+            Name = name;
+            Balance = balance;
+        }
+
+        public String Name { get { return name; } set { name = value; } }
+        public int Id { get { return id; } set { id = value; } }
+        public double Balance { get { return balance; } set { balance = value; } }
+        public void deposit(double value)
+        {
+            balance = balance + value;
+        }
+
+        public void display()
+        {
+            Console.WriteLine($"id : {id} name: {name} balance: {balance}");
+
+        }
+    }
+    class Current_account : Account
+    {
+
+        string Nameofaccount;
+        public Current_account(int id, string name, double balance) : base(id, name, balance)
+        {
+            Nameofaccount = name;
+
+        }
+
+        public void withdraw(double amt)
+        {
+            Balance = Balance - amt;
+            Console.WriteLine("amount Withdrawled");
+        }
+
+    }
+
+    class saving_account : Account
+    {
+        string Nameofaccount;
+        public saving_account(String name, int id, double balance) : base(id, name, balance)
+        {
+            Nameofaccount = name;
+
+        }
+        public void withdraw(double value)
+        {
+            if (Balance < -1)
+            {
+                Console.WriteLine("amount Withdrawled");
+            }
+            else
+            {
+                Balance = Balance - value;
+                Console.WriteLine("amount Withdrawled");
+
+            }
+        }
+
+        public class Program
+        {
+            public static void Main(string[] args)
+            {
+                Console.WriteLine("name of bank: ICICI");
+                saving_account sa = new saving_account("Raj", 1, 5000);
+                sa.display();
+
+            }
+        }
+    }
+}
+
+    
+    
+
+
+
