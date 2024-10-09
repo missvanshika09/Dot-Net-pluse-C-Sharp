@@ -1,0 +1,39 @@
+using System;
+/*A base class reference can refer to a derived class object.
+Parent class reference can point to child class object but parent(mammal) knows it’s member and not aware of new feature develop by child
+Parent p=new child();
+P can point to its member it is not aware of feature developed by child 
+*/
+class Mammal
+{
+    public int a;
+
+    public Mammal(int i)
+    { a = i; }
+}
+class Animal : Mammal
+{
+    public int b;
+
+    public Animal(int i, int j) : base(j)
+    { b = i; }
+}
+class BaseRef
+{
+    public static void Main()
+    {
+        Mammal m = new Mammal(10);
+        Mammal m2;
+        Animal anim = new Animal(5, 6);
+        m2 = m; // OK, both of same type 
+        Console.WriteLine("x2.a: " + m2.a);//10
+        m2 = anim; // still Ok because animal is derived from mammal 
+        Console.WriteLine("m2.a: " + m2.a); //6
+       // X references know only about X members 
+        m2.a = 19; // OK 
+        m2.b = 27; // Error,m2X doesn't have a b member 
+    }
+}
+
+
+
