@@ -1,0 +1,52 @@
+//Publisher_subscriber_design_&_event 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day7Publisher
+{
+    //declare the delegate
+    delegate void MyEventHandler();
+
+    internal class EventDemo_Publisher
+    {//
+        public event MyEventHandler SomeEvent;// null defalut
+
+        public void OnSomeEvent()
+        { 
+            if (SomeEvent != null)
+                SomeEvent(); 
+        }
+         
+    }
+}
+
+
+
+
+    internal class EventDemo_Subscriber
+    { 
+static void handler()
+        {
+            Console.WriteLine("Event occurred");
+
+        }
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine("Publisher Subscriber degin and  event :\t U r  in subscriber scope");
+
+            //object created this wil call the class EventDemo_Publisher
+            EventDemo_Publisher evt = new EventDemo_Publisher(); 
+            //Add handler() to the event list.
+            evt.SomeEvent += new MyEventHandler(handler);
+            //fire the event
+            evt.OnSomeEvent();
+
+        }
+
+    }
+}
