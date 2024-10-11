@@ -1,6 +1,6 @@
 namespace Day8Delegate
 {
-    delegate int CADeligiate(int a, int b);
+    delegate int CADeligiate(int a, int b);//name different from class name and name of it same for different methods
     internal class CADelig
     {
         static int add(int a, int b)
@@ -15,7 +15,7 @@ namespace Day8Delegate
         static void Main(string[] args)
         {
            
-            CADeligiate cA = new CADeligiate(CADelig.add);
+            CADeligiate cA = new CADeligiate(CADelig.add);// deligate name  vairiable_name= new deligate name (classname.method)
             int r = cA(5, 6);
             Console.WriteLine(r);
         
