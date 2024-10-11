@@ -1,0 +1,28 @@
+namespace Day8Delegate
+{
+    delegate int CADeligiate(int a, int b);
+    internal class CADelig
+    {
+        static int add(int a, int b)
+            {
+            return a + b;
+        }
+        static int prod(int a, int b)
+        {
+            return a * b;
+        }
+
+        static void Main(string[] args)
+        {
+           
+            CADeligiate cA = new CADeligiate(CADelig.add);
+            int r = cA(5, 6);
+            Console.WriteLine(r);
+        
+        cA=new CADeligiate(prod);
+            r = cA(5, 5);
+       
+            Console.WriteLine(r);
+        }
+    }
+}
