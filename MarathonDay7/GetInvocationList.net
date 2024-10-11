@@ -1,0 +1,53 @@
+//GetInvocationList
+namespace Day8Delegate
+{
+    delegate int CADeligiate(int a, int b);//name different from class name and name of it same for different methods
+    internal class CADelig
+    {
+        static int add(int a, int b)
+        {
+            return a + b;
+        }
+        static int prod(int a, int b)
+        {
+            return a * b;
+        }
+
+        static void Main(string[] args)
+        {
+
+            CADeligiate cA = new CADeligiate(CADelig.add);// deligate name  vairiable_name= new deligate name (classname.method)
+            int r = cA(5, 6);
+            Console.WriteLine(r);// normal deligate
+
+
+            Console.WriteLine(" we are using MultiCast_Deligate Now");//multideligate(  add and remove)
+            cA += CADelig.add;
+            Console.WriteLine("cA += CADelig.add=\t" + r);
+
+
+            //GetInvvocationList
+            foreach(CADeligiate m in cA.GetInvocationList())
+            {
+                Console.WriteLine(m.Method);
+                Console.WriteLine(m.DynamicInvoke(5,8));
+            }
+
+                cA = new CADeligiate(prod);
+            r = cA(5, 5);//deligate
+            Console.WriteLine(r);
+
+
+            Console.WriteLine(" we are using MultiCast_Deligate Now");
+            cA += CADelig.prod;//multideligate
+            Console.WriteLine("cA += CADelig.product=\n" + r);
+
+            
+           // foreach (name_of_Deligate Name_of_newvarible in name_of_Object.GetInvocationList()) 
+           
+
+
+
+        }
+    }
+}
