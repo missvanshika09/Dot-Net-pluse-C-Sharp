@@ -1,0 +1,34 @@
+Same time while shopping we get email  and sms this is used 
+namespace Day7Delegate
+{
+    delegate int CADeligiate(int a, int b);//name different from class name and name of it same for different methods
+    internal class CADelig
+    {
+        static int add(int a, int b)
+        {
+            return a + b;
+        }
+        static int prod(int a, int b)
+        {
+            return a * b;
+        }
+
+        static void Main(string[] args)
+        {
+
+            CADeligiate cA = new CADeligiate(CADelig.add);// deligate name  vairiable_name= new deligate name (classname.method)
+         
+            Console.WriteLine(" we are using MultiCast_Deligate Now");
+            cA += CADelig.add;
+            Console.WriteLine("cA += CADelig.add=\t" + r);
+            cA = new CADeligiate(prod);
+           
+            Console.WriteLine(" we are using MultiCast_Deligate Now");
+            cA += CADelig.prod;
+            Console.WriteLine("cA += CADelig.product=\n" + r);
+
+
+
+        }
+    }
+}
